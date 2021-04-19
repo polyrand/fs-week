@@ -1,4 +1,6 @@
 import torch
+import json
+from pathlib import Path
 import argparse
 import torch.nn as nn
 import torch.optim as optim
@@ -59,11 +61,15 @@ def get_dataloaders():
         ),
     }
 
-    data_dir = "data/hymenoptera_data"
+    data_dir = "../data/hymenoptera_data"
     image_datasets = {
         x: datasets.ImageFolder(os.path.join(data_dir, x), data_transforms[x])
         for x in ["train", "val"]
     }
+
+    with open("../assets/class2idx.json", "w") as f:
+        f.write(json.dumps(image_datasets["train"].class_to_idx))
+
     dataloaders = {
         x: torch.utils.data.DataLoader(
             image_datasets[x], batch_size=4, shuffle=True, num_workers=4
@@ -218,6 +224,9 @@ def main(args):
 
     print(args)
 
+    if args.get_dls:
+        get_dataloaders()
+
     if args.download_data:
         print("downloading data")
         download_data()
@@ -240,6 +249,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--download-data", action="store_true")
+    parser.add_argument("--get-dls", action="store_true")
     parser.add_argument("--train", action="store_true")
     parser.add_argument("--epochs", type=int, help="number of epochs to train")
     parser.add_argument("--optimizer", type=str)
@@ -248,3 +258,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     main(args)
+    exit()
