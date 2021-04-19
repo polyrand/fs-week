@@ -1,0 +1,11 @@
+site_name: Ricardo - Strive
+
+theme:
+   name: material
+   language: en
+plugins:
+  - search
+nav:
+  - Introduction: 'index.md'
+  - Examples: 'examples.md'
+  - Models: 'models.md'
