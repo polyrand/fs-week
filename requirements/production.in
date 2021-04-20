@@ -1,6 +1,8 @@
-python-dotenv
 flask
+requests
 matplotlib
 numpy
+passlib[bcrypt]
+python-dotenv
 torch
 torchvision

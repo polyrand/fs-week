@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>hello strive 2</h1>
+
+<p>Please upload an image</p>
+
+<form action="/file_upload" method="post" enctype="multipart/form-data">
+  <input type="file" id="myfile" name="file_1">
+  <input type="password" name="user_key">
+  <input class="" type="submit">
+</form>
+{% endblock content %}
