@@ -11,10 +11,13 @@ click==7.1.2
     #   mkdocs
     #   nltk
     #   pip-tools
+flake8==3.9.1
+    # via -r requirements/dev.in
 future==0.18.2
     # via lunr
 importlib-metadata==4.0.0
     # via
+    #   flake8
     #   markdown
     #   pep517
     #   pluggy
@@ -36,6 +39,8 @@ markdown==3.3.4
     #   pymdown-extensions
 markupsafe==1.1.1
     # via jinja2
+mccabe==0.6.1
+    # via flake8
 mkdocs-material-extensions==1.0.1
     # via mkdocs-material
 mkdocs-material==7.1.2
@@ -58,6 +63,10 @@ pluggy==0.13.1
     # via pytest
 py==1.10.0
     # via pytest
+pycodestyle==2.7.0
+    # via flake8
+pyflakes==2.3.1
+    # via flake8
 pygments==2.8.1
     # via mkdocs-material
 pymdown-extensions==8.1.1

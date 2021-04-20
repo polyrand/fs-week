@@ -1,4 +1,5 @@
 import io
+import sys
 import json
 from functools import lru_cache
 
@@ -13,9 +14,21 @@ import logging
 
 from flask import Flask, jsonify, request
 
+
 MODELS_DIR = Path("models")
 ASSETS_DIR = Path("assets")
 MODEL_NAME = "best_model.pth"
+
+
+log = logging.getLogger()
+log.addHandler(logging.StreamHandler(sys.stdout))
+
+LOG_LEVEL = "debug"
+
+if LOG_LEVEL == "info":
+    log.setLevel(logging.INFO)
+else:
+    log.setLevel(logging.DEBUG)
 
 
 @lru_cache()
@@ -48,6 +61,10 @@ app = Flask(__name__)
 @app.route("/predict", methods=["POST"])
 def predict():
 
+    log.debug("this is a debug message")
+
+    log.info("doing request")
+
     if request.method == "POST":
         # we will get the file from the request
         file = request.files["file"]
@@ -55,6 +72,7 @@ def predict():
         img_bytes = file.read()
         # class_id, class_name = get_prediction(image_bytes=img_bytes)
         pred_class = get_prediction(image_bytes=img_bytes)
+        log.debug(pred_class)
         return jsonify(pred_class)
         # return jsonify({"class_id": class_id, "class_name": class_name})
 
@@ -69,6 +87,7 @@ def transform_image(image_bytes):
         ]
     )
     image = Image.open(io.BytesIO(image_bytes))
+
     return my_transforms(image).unsqueeze(0)
 
 
