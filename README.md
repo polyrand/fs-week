@@ -26,3 +26,11 @@ TO DO
 ## Training a new model
 
 TO DO
+
+## Contributing to the docs
+
+We are using [mkdocs](https://www.mkdocs.org/)
+
+Documentation is deployed using the command `mkdocs gh-deploy` do not
+update the files in GitHub directly. Update the markdown in your laptop and use the command.
+Also, remember to keep the `mkdocs.yaml` synchronized with your markdown files.
