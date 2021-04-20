@@ -36,8 +36,8 @@ class DB:
         with self.conn as c:
             c.executescript(
                 """
-CREATE TABLE IF NOT EXIST logs (time TEXT, key TEXT, value TEXT);
-CREATE TABLE IF NOT EXIST users (user_id TEXT, email TEXT, password TEXT);
+CREATE TABLE IF NOT EXISTS logs (time TEXT, key TEXT, value TEXT);
+CREATE TABLE IF NOT EXISTS users (user_id TEXT, email TEXT, password TEXT);
 """.strip()
             )
 
