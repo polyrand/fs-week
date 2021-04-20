@@ -47,6 +47,7 @@ app = Flask(__name__)
 
 @app.route("/predict", methods=["POST"])
 def predict():
+
     if request.method == "POST":
         # we will get the file from the request
         file = request.files["file"]
@@ -71,9 +72,6 @@ def transform_image(image_bytes):
     return my_transforms(image).unsqueeze(0)
 
 
-# classifier_idx_data = json.load(open("whatever.json"))
-
-
 def get_prediction(image_bytes):
     model = load_model()[0]
     idx2class = load_model()[1]
@@ -82,7 +80,6 @@ def get_prediction(image_bytes):
     _, y_hat = outputs.max(1)
     predicted_idx = str(y_hat.item())
     return idx2class[int(predicted_idx)]
-    # return classifier_idx_data[predicted_idx]
 
 
 if __name__ == "__main__":

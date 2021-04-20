@@ -8,4 +8,5 @@ plugins:
 nav:
   - Introduction: 'index.md'
   - Examples: 'examples.md'
+  - Contributing: 'contributing.md'
   - Models: 'models.md'
