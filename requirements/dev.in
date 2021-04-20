@@ -1,2 +1,4 @@
 mkdocs
+pip-tools
+pytest
 mkdocs-material
