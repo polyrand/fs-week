@@ -14,7 +14,7 @@
     
     
       
-        <title>Running - Ricardo - Strive</title>
+        <title>Running the apps - Ricardo - Strive</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-run-the-model-as-a-service" class="md-skip">
+        <a href="#how-to-run-the-model-as-a-separate-service" class="md-skip">
           Skip to content
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Running
+              Running the apps
             
           </span>
         </div>
@@ -184,8 +184,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../examples/" class="md-nav__link">
-        Examples
+      <a href="../documentation/" class="md-nav__link">
+        Documentation
       </a>
     </li>
   
@@ -209,12 +209,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Running
+          Running the apps
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Running
+        Running the apps
       </a>
       
         
@@ -235,6 +235,21 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/" class="md-nav__link">
+        Training
+      </a>
     </li>
   
 
@@ -292,10 +307,15 @@
               
                 
                 
-                <h1 id="how-to-run-the-model-as-a-service">How to run the model as a service</h1>
-<p>This app is designed to be run inside Flask. The app is in <code>service.py</code></p>
-<pre><code class="language-bash">FLASK_ENV=development FLASK_APP=service.py flask run --port 5001
+                <h1 id="how-to-run-the-model-as-a-separate-service">How to run the model as a separate service</h1>
+<p>This app is designed to be run inside Flask. The machine learning model is running in <code>service.py</code>. The main app is inside <code>app.py</code>. If you run any of the apps in a different port, check the python files and modify them accordingly.</p>
+<p>To run the apps use:</p>
+<pre><code class="language-bash">FLASK_ENV=development FLASK_APP=service.py flask run --port 5005
 </code></pre>
+<pre><code class="language-bash">FLASK_ENV=development FLASK_APP=app.py flask run --port 5002
+</code></pre>
+<p>Now you can navigate to <a href="127.0.0.1:5002">127.0.0.1:5002</a> and use your app. The main <code>app.py</code> calls <code>service.py</code> to do the predictions.</p>
+<p>At the top fo the Flask apps there are a few configuration variables. They are mostly about the paths to find the files we need and the name of the files (for example the weights of the best performing model). Modify those if you change the project structure.</p>
                 
               
               
@@ -314,7 +334,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../examples/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../documentation/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -323,19 +343,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Examples
+              Documentation
             </div>
           </div>
         </a>
       
       
-        <a href="../models/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../training/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Models
+              Training
             </div>
           </div>
           <div class="md-footer__button md-icon">
