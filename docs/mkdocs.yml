@@ -6,7 +6,7 @@ theme:
    name: material
    language: en
    palette:
-    primary: amber
+    primary: blue grey
 plugins:
   - search
 nav:
