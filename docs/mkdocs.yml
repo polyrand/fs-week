@@ -5,6 +5,8 @@ repo_name: polyrand/fs-week
 theme:
    name: material
    language: en
+   palette:
+    primary: amber
 plugins:
   - search
 nav:
