@@ -6,6 +6,12 @@
 
 We are using [pip-tools](https://github.com/jazzband/pip-tools)
 
+Make sure to install pip-tools **in the same environment** you are working on.
+
+```
+pip install pip-tools
+```
+
 To build the `.txt` files use:
 
 ```bash
@@ -19,9 +25,16 @@ To sync the dependencies use:
 pip-sync requirements/*.txt
 ```
 
+If you are using a single file called `requirements.txt` (maybe easier at first), use it like:
+
+```bash
+pip-compile -v --output-file requirements/requirements.txt requirements/requirements.in
+pip-sync requirements/requirements.txt
+```
+
 ## Testing the app
 
-Testing is done using pytest. After you install it, from the root of the repo run:
+Testing is done using [pytest](https://docs.pytest.org/en/6.2.x/). After you install it, from the root of the repo run:
 
 ```bash
 python3 -m pytest -vv
