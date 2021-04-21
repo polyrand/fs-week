@@ -1,4 +1,4 @@
-from app.app import get_hash, verify_hash
+from app.app import get_hash, verify_hash, db
 import re
 import pytest
 
@@ -30,6 +30,17 @@ def test_hash_computation(testing_string):
     "email,password", [("hello@hello.com", "asd"), ("strive@strive.com", "asdasd")]
 )
 def test_user_creation(email, password):
+
+    user_id = db.create_user(email, password)
+
+    r = db.conn.execute("SELECT * from users where user_id = ?", (user_id,)).fetchone()
+
+    hashed_password = r[2]
+
+    print(hashed_password)
+
+    assert db.validate_password(password, hashed_password)
+
     # TODO
     # examples of what to test
     # 1. verify user is created

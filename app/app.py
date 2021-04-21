@@ -55,6 +55,9 @@ import sqlite3
 
 from flask import Flask, jsonify, render_template, request
 
+# def print(*args, **kwargs):
+#     return
+
 
 template_dir = Path("../templates")
 app = Flask(__name__, template_folder=str(template_dir))
@@ -64,6 +67,8 @@ class DB:
     def __init__(self, dbname):
         self.dbname = dbname
         self.conn = sqlite3.connect(dbname, check_same_thread=False)
+
+        # self.conn.execute("")
 
         with self.conn as c:
             c.executescript(
@@ -97,12 +102,16 @@ CREATE TABLE IF NOT EXISTS users (user_id TEXT, email TEXT, password TEXT);
             "select * from users where email = ?", (email,)
         ).fetchone()
 
+        print(user)
+
         if not user:
             return None
         else:
             user_id = user[0]
             email = user[1]
             hashed_password = user[2]
+
+            print(password, hashed_password)
 
             if not verify_hash(password, hashed_password):
                 return None
@@ -150,6 +159,8 @@ def post_image():
         email = request.form["email"]
         password = request.form["user_key"]
 
+        print(email, password)
+
         if not db.validate_password(email=email, password=password):
             return "not allowed"
 
@@ -157,7 +168,7 @@ def post_image():
 
         img_bytes = file.read()
 
-        r = requests.post("http://127.0.0.1:5001/predict", files={"file": img_bytes})
+        r = requests.post("http://127.0.0.1:5005/predict", files={"file": img_bytes})
 
         r.raise_for_status()
 

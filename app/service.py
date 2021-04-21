@@ -15,8 +15,8 @@ import logging
 from flask import Flask, jsonify, request
 
 
-MODELS_DIR = Path("models")
-ASSETS_DIR = Path("assets")
+MODELS_DIR = Path("../models")
+ASSETS_DIR = Path("../assets")
 MODEL_NAME = "best_model.pth"
 
 
@@ -92,8 +92,8 @@ def transform_image(image_bytes):
 
 
 def get_prediction(image_bytes):
-    model = load_model()[0]
-    idx2class = load_model()[1]
+    model, idx2class = load_model()
+    # idx2class = load_model()[1]
     tensor = transform_image(image_bytes=image_bytes)
     outputs = model.forward(tensor)
     _, y_hat = outputs.max(1)
