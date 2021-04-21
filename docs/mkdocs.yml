@@ -1,4 +1,5 @@
-site_name: Ricardo - Strive
+site_name: Full-Stack Machine Learning
+repo_url: https://github.com/polyrand/fs-week
 
 theme:
    name: material
