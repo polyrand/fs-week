@@ -19,6 +19,14 @@ To sync the dependencies use:
 pip-sync requirements/*.txt
 ```
 
+## Testing the app
+
+Testing is done using pytest. After you install it, from the root of the repo run:
+
+```bash
+python3 -m pytest -vv
+```
+
 ## Running the Flask app
 
 TO DO
