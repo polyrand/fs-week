@@ -11,7 +11,7 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 from flask import Flask, jsonify, render_template, request
 
 
-template_dir = Path("templates")
+template_dir = Path("../templates")
 app = Flask(__name__, template_folder=str(template_dir))
 
 
@@ -31,7 +31,7 @@ def get_hash(password):
 class DB:
     def __init__(self, dbname):
         self.dbname = dbname
-        self.conn = sqlite3.connect(dbname)
+        self.conn = sqlite3.connect(dbname, check_same_thread=False)
 
         with self.conn as c:
             c.executescript(
@@ -69,7 +69,13 @@ CREATE TABLE IF NOT EXISTS users (user_id TEXT, email TEXT, password TEXT);
             return None
         else:
             user_id = user[0]
-            return user_id
+            email = user[1]
+            hashed_password = user[2]
+
+            if not verify_hash(password, hashed_password):
+                return None
+            else:
+                return user_id
 
     def log_message(self, key, value):
 
@@ -77,7 +83,6 @@ CREATE TABLE IF NOT EXISTS users (user_id TEXT, email TEXT, password TEXT);
 
         with self.conn as c:
             c.execute("INSERT INTO logs VALUES (?, ?, ?)", (now, key, value))
-
         return
 
 
@@ -91,13 +96,34 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/create_user", methods=["GET", "POST"])
+def user_create():
+
+    if request.method == "GET":
+        return render_template("create_user.html")
+
+    if request.method == "POST":
+        email = request.form["email"]
+        password = request.form["new_user_password"]
+
+        # TODO:
+        # Use the functions in our DB class to create a new user
+
+        return "ok"
+
+
 @app.route("/file_upload", methods=["POST"])
 def post_image():
 
     if request.method == "POST":
+        email = request.form["email"]
         password = request.form["user_key"]
+
+        if not db.validate_password(email=email, password=password):
+            return "not allowed"
+
         file = request.files["file_1"]
-        print(file)
+
         img_bytes = file.read()
 
         r = requests.post("http://127.0.0.1:5001/predict", files={"file": img_bytes})

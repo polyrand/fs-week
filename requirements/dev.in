@@ -1,5 +1,6 @@
 mkdocs
 flake8
 pip-tools
+ipython
 pytest
 mkdocs-material
