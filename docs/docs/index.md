@@ -1,19 +1,10 @@
-# Welcome to MkDocs
+This is a full-stack machine learning project. It includes the following:
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Hello Strive
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* Multiple Flask apps
+* Model training script
+* Tests
+* GitHub workflow for automatic testing
+* A good project organization!
+* Documentation
+* Good dependency management. We are using `pip-tools` but other managers also work.
+* Automatic deployments to AWS SageMaker and saving the models to S3

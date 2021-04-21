@@ -7,6 +7,7 @@ plugins:
   - search
 nav:
   - Introduction: 'index.md'
-  - Examples: 'examples.md'
-  - Running: 'running.md'
+  - Documentation: 'documentation.md'
+  - Running the apps: 'running.md'
+  - Training: 'training.md'
   - Models: 'models.md'
