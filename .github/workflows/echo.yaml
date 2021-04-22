@@ -12,4 +12,3 @@ jobs:
       - name: some random step
         run: |
           python3 -c "print('hello')"
-        # run: jupyter nbconvert --execute tests.ipynb --to notebook
