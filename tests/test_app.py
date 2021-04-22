@@ -1,4 +1,4 @@
-from app.app import get_hash, verify_hash, db
+from app.app import get_hash, verify_hash, DB
 import os
 import re
 import pytest
@@ -32,9 +32,21 @@ def test_hash_computation(testing_string):
 )
 def test_user_creation(email, password):
 
+    # We are not checking if an email already exists so
+    # we can have the same email but *the password hashes
+    # will be different*. For that reason, I'm deleting the whole
+    # users table on every new test
+
+    # BE CAREFUL: If I were running this test on a "production" database, it would break
+    # everything. That's why I'm creating a new db called "test.db" for every test.
+
+    db = DB(dbname="testing.db")
+
+    # remove eerything from the users table
     db.conn.execute("DELETE FROM users")
     db.conn.execute("COMMIT")
 
+    # create a new user (password will be hashed inside the function)
     user_id = db.create_user(email, password)
 
     # here I'm using the internal DB connection in the class to send a custom
@@ -58,9 +70,7 @@ def test_user_creation(email, password):
 
     assert db.validate_password(email, password)
 
-    # TODO
     # examples of what to test
     # 1. verify user is created
     # 2. verify you can validate the hash
     # 3. whatever you come up with
-    pass
