@@ -1,4 +1,7 @@
 best_model.pth
 data.zip
 data/*
+.env
 models/*.pth
+
+ml_app.db
