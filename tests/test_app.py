@@ -5,11 +5,19 @@ import pytest
 
 
 def test_get_hash():
+
+    # random test
+
+    # make sure the hash of a string is not the same as the string
     assert get_hash("hello") != "hello"
     assert get_hash("strive") != "strive"
 
 
 def test_bcrypt():
+
+    # check that a hash matches the bcrypt patter (at least if using passlib)
+    # *NOTICE* if you don't have passlib, app.py will use another hashing system
+    # and this test will fail
 
     bcrypt_hash_pattern = r"^\$2[ayb]\$.{56}$"
     pat = re.compile(bcrypt_hash_pattern)
