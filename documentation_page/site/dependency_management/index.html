@@ -14,7 +14,7 @@
     
     
       
-        <title>Training - Full-Stack Machine Learning</title>
+        <title>Dependencies - Full-Stack Machine Learning</title>
       
     
     
@@ -62,6 +62,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#python-packages-and-dependencies" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -88,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Training
+              Dependencies
             
           </span>
         </div>
@@ -237,19 +242,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../training/" class="md-nav__link">
         Training
       </a>
-      
     </li>
   
 
@@ -260,11 +257,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../dependency_management/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Dependencies
       </a>
+      
     </li>
   
 
@@ -291,30 +298,47 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/polyrand/fs-week/edit/master/docs/training.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/polyrand/fs-week/edit/master/docs/dependency_management.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>Training</h1>
-                
-                <p>Here's an example to train a new model.</p>
-<p>In order to run the training script use:</p>
-<pre><code>python3 train.py --download-data
-python3 train.py --train --epochs 2 --optmizer adam
+                <h1 id="python-packages-and-dependencies">Python packages and dependencies</h1>
+<p>We can use <a href="https://pypi.org/project/pip-tools/">pip-tools</a> to take
+a file with requirements and get a new one with the versions pinned.</p>
+<p><em>Pinned = with a very specific version number associated</em></p>
+<pre><code class="language-bash">pip-compile -v --output-file requirements/main.txt requirements/main.in
+pip-compile -v --output-file requirements/dev.txt requirements/dev.in
 </code></pre>
-<p>When the training finishes, the best model weights will be saved to a file called <code>best_model.pth</code>.</p>
-<p><strong>NOTE</strong>: The <code>train.py</code> script is still missing some features. Feel free to implement them:</p>
-<ul>
-<li>Choosing the folder to save the downloaded data</li>
-<li>Choosing the name and folder to save the best model</li>
-<li>Whatever comes to your mind!</li>
-</ul>
+<p>To upgrade:</p>
+<pre><code class="language-bash">pip-compile -v --upgrade --output-file requirements/main.txt requirements/main.in
+pip-compile -v --upgrade --output-file requirements/dev.txt requirements/dev.in
+</code></pre>
+<p>To replicate an environment:</p>
+<pre><code class="language-bash">pip-sync requirements/*.txt
+</code></pre>
                 
               
               
@@ -333,7 +357,7 @@ python3 train.py --train --epochs 2 --optmizer adam
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../running/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../training/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -342,19 +366,19 @@ python3 train.py --train --epochs 2 --optmizer adam
               <span class="md-footer__direction">
                 Previous
               </span>
-              Running the apps
+              Training
             </div>
           </div>
         </a>
       
       
-        <a href="../dependency_management/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../models/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Dependencies
+              Models
             </div>
           </div>
           <div class="md-footer__button md-icon">
