@@ -242,25 +242,18 @@
     Day 1
   </a>
   
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extra-work-load-the-data-url-from-an-environment-variable-using-a-env-file-and-the" class="md-nav__link">
-    extra work: # load the data URL from an environment variable (using a .env file and the
-  </a>
-  
-    <nav class="md-nav" aria-label="extra work: # load the data URL from an environment variable (using a .env file and the">
+    <nav class="md-nav" aria-label="Day 1">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#day-12" class="md-nav__link">
     Day 1.2
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -416,25 +409,18 @@
     Day 1
   </a>
   
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extra-work-load-the-data-url-from-an-environment-variable-using-a-env-file-and-the" class="md-nav__link">
-    extra work: # load the data URL from an environment variable (using a .env file and the
-  </a>
-  
-    <nav class="md-nav" aria-label="extra work: # load the data URL from an environment variable (using a .env file and the">
+    <nav class="md-nav" aria-label="Day 1">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#day-12" class="md-nav__link">
     Day 1.2
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -488,6 +474,8 @@
                   </a>
                 
                 
+                  <h1>Introduction</h1>
+                
                 <p>This is a full-stack machine learning project. It includes the following:</p>
 <ul>
 <li>Multiple Flask apps Model training script Tests GitHub workflow for automatic testing A good</li>
@@ -509,23 +497,30 @@ documentation methods if you want.</p>
 <p>Write a script to train an ML model.</p>
 </li>
 </ol>
-<p>Turn the 2.train.ipynb notebook into a python script</p>
+<p>Turn the <code>2.train.ipynb</code> notebook into a python script</p>
 <p>The script can have the following options:</p>
-<p>``` --download-data --train --epochs INT (it should have a default) --optimizer STRING
---load-weights STRING</p>
-<h1 id="extra-work-load-the-data-url-from-an-environment-variable-using-a-env-file-and-the">extra work: # load the data URL from an environment variable (using a .env file and the</h1>
-<p>python-dotenv package) ```</p>
+<pre><code>--download-data --train --epochs INT (it should have a default) --optimizer STRING
+--load-weights STRING
+
+# extra work:
+# load the data URL from an environment variable (using a .env file and the python-dotenv package)
+</code></pre>
 <p>Then you can run the script like:</p>
-<p><code>python3 train.py --download-data --train --epochs 3 --optimizer sgd --load-weights
-my_weigths.pth</code></p>
+<pre><code>python3 train.py --download-data --train --epochs 3 --optimizer sgd --load-weights my_weigths.pth
+</code></pre>
 <p><strong>Don't worry if you can't implement all the options</strong></p>
 <h4 id="day-12">Day 1.2</h4>
 <p>Try creating a Python class that abstracts all the operations you want to make that interact with
 the database.</p>
-<p>```python class DB:</p>
-<pre><code>def __init__(self, dbname): self.conn =  sqlite3.connect(dbname)
+<pre><code class="language-python">
+class DB:
 
-def do_something(self): with self.conn as cursor: cursor.execute(".......", (a, b)) ```
+    def __init__(self, dbname):
+        self.conn =  sqlite3.connect(dbname)
+
+    def do_something(self):
+        with self.conn as cursor:
+            cursor.execute(&quot;.......&quot;, (a, b))
 </code></pre>
 <h3 id="day-2">Day 2</h3>
 <ol>
@@ -584,27 +579,20 @@ end. As long as you make it work and write a couple of tests.</p>
 <p>Create a github workflow that does anything. It can be just a <code>print()</code> or running all the tests.
 You can do it in a new empty repository or in an old one.  Some resources that may be helpful:</p>
 <ul>
-<li>[Official introduction to GitHub</li>
 <li>
-<p>Actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions)</p>
+<p><a href="https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions">Official introduction to GitHub Actions</a></p>
 </li>
 <li>
-<p>[GitHub Actios Syntax (this is a long one, you don't really need it for</p>
+<p><a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions">GitHub Actios Syntax (this is a long one, you don't really need it for now)</a></p>
 </li>
 <li>
-<p>now)](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)</p>
+<p><a href="https://github.com/polyrand/fs-week/blob/main/.github/workflows/echo.yaml">A basic template for a github action. It does a print("hello") with Python</a></p>
 </li>
-<li>
-<p>[A basic template for a github action. It does a print("hello") with</p>
-</li>
-<li>Python](https://github.com/polyrand/fs-week/blob/main/.github/workflows/echo.yaml)</li>
 </ul>
 <p>Remember, the workflows/actions have to be inside a folder called <code>.github/workflows</code> inside your
 repo.</p>
 <h3 id="final">Final</h3>
-<p>So far we have learned how to deal with Flask apps <a href="/fs-week/running">running</a> ML models, Python scripts to
-<a href="/fs-week/training">train</a> models, how to organize a project or how to write
-<a href="/fs-week/documentation">documentation</a>.</p>
+<p>So far we have learned how to deal with Flask apps <a href="/fs-week/running">running</a> ML models, Python scripts to <a href="/fs-week/training">train</a> models, how to organize a project or how to write <a href="/fs-week/documentation">documentation</a>.</p>
 <p>Now imagine your ML product has do more things. Your users may be sending you some unwanted data and
 you need to filter it. Well, the best way to do it is with another model. The task for the last day
 is:</p>
@@ -619,15 +607,8 @@ belongs to your data, then send the item to the main Flask service.</p>
 <p>Some things you may modify:</p>
 <ul>
 <li>Instead of running the image through the 2 flask apps, you can implement an HTML dropdown / form</li>
-<li>
-<p>field to let the user choose which model they want to run the image through.</p>
-</li>
-<li>
-<p>Instead of running the 2 ML models in different Flask apps, you can try putting the 2 models</p>
-</li>
-<li>insider service.py. This is a double-edged sword. It's easier because you don't need to run an</li>
-<li>extra Flask app. However, now you need to load 2 models inside a single Flask app, which may also</li>
-<li>become a challenge.</li>
+<li>field to let the user choose which model they want to run the image through.</li>
+<li>Instead of running the 2 ML models in different Flask apps, you can try putting the 2 models insider <code>service.py</code>. This is a double-edged sword. It's easier because you don't need to run an extra Flask app. However, now you need to load 2 models inside a single Flask app, which may also become a challenge.</li>
 </ul>
                 
               
