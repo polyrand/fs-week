@@ -18,20 +18,23 @@ documentation methods if you want.
 
 3. Write a script to train an ML model.
 
-Turn the 2.train.ipynb notebook into a python script
+Turn the `2.train.ipynb` notebook into a python script
 
 The script can have the following options:
 
-``` --download-data --train --epochs INT (it should have a default) --optimizer STRING
+```
+--download-data --train --epochs INT (it should have a default) --optimizer STRING
 --load-weights STRING
     
-# extra work: # load the data URL from an environment variable (using a .env file and the
-python-dotenv package) ```
+# extra work:
+# load the data URL from an environment variable (using a .env file and the python-dotenv package)
+```
 
 Then you can run the script like:
 
-``` python3 train.py --download-data --train --epochs 3 --optimizer sgd --load-weights
-my_weigths.pth ```
+```
+python3 train.py --download-data --train --epochs 3 --optimizer sgd --load-weights my_weigths.pth
+```
 
 **Don't worry if you can't implement all the options**
 
@@ -40,11 +43,17 @@ my_weigths.pth ```
 Try creating a Python class that abstracts all the operations you want to make that interact with
 the database.
 
-```python class DB:
+```python
 
-    def __init__(self, dbname): self.conn =  sqlite3.connect(dbname)
+class DB:
+
+    def __init__(self, dbname):
+        self.conn =  sqlite3.connect(dbname)
 		
-    def do_something(self): with self.conn as cursor: cursor.execute(".......", (a, b)) ```
+    def do_something(self):
+        with self.conn as cursor:
+            cursor.execute(".......", (a, b))
+```
 
 
 ### Day 2
@@ -108,14 +117,11 @@ Something extra to try in the exercises:
 Create a github workflow that does anything. It can be just a `print()` or running all the tests.
 You can do it in a new empty repository or in an old one.  Some resources that may be helpful:
 
-* [Official introduction to GitHub
-* Actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions)
+* [Official introduction to GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions)
 
-* [GitHub Actios Syntax (this is a long one, you don't really need it for
-* now)](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
+* [GitHub Actios Syntax (this is a long one, you don't really need it for now)](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
 
-* [A basic template for a github action. It does a print("hello") with
-* Python](https://github.com/polyrand/fs-week/blob/main/.github/workflows/echo.yaml)
+* [A basic template for a github action. It does a print("hello") with Python](https://github.com/polyrand/fs-week/blob/main/.github/workflows/echo.yaml)
 
 Remember, the workflows/actions have to be inside a folder called `.github/workflows` inside your
 repo.
@@ -123,9 +129,7 @@ repo.
 
 ### Final
 
-So far we have learned how to deal with Flask apps [running](/fs-week/running) ML models, Python scripts to
-[train](/fs-week/training) models, how to organize a project or how to write
-[documentation](/fs-week/documentation).
+So far we have learned how to deal with Flask apps [running](/fs-week/running) ML models, Python scripts to [train](/fs-week/training) models, how to organize a project or how to write [documentation](/fs-week/documentation).
 
 Now imagine your ML product has do more things. Your users may be sending you some unwanted data and
 you need to filter it. Well, the best way to do it is with another model. The task for the last day
@@ -143,8 +147,4 @@ Some things you may modify:
 
 * Instead of running the image through the 2 flask apps, you can implement an HTML dropdown / form
 * field to let the user choose which model they want to run the image through.
-
-* Instead of running the 2 ML models in different Flask apps, you can try putting the 2 models
-* insider service.py. This is a double-edged sword. It's easier because you don't need to run an
-* extra Flask app. However, now you need to load 2 models inside a single Flask app, which may also
-* become a challenge.
+* Instead of running the 2 ML models in different Flask apps, you can try putting the 2 models insider `service.py`. This is a double-edged sword. It's easier because you don't need to run an extra Flask app. However, now you need to load 2 models inside a single Flask app, which may also become a challenge.

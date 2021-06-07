@@ -328,14 +328,17 @@
                 
                 
                 <h1 id="how-to-run-the-model-as-a-separate-service">How to run the model as a separate service</h1>
-<p>This app is designed to be run inside Flask. The machine learning model is running in <code>service.py</code>. The main app is inside <code>app.py</code>. If you run any of the apps in a different port, check the python files and modify them accordingly.</p>
+<p>This app is designed to be run inside Flask. The machine learning model is running in <code>service.py</code>.
+The main app is inside <code>app.py</code>. If you run any of the apps in a different port, check the python
+files and modify them accordingly.</p>
 <p>To run the apps use:</p>
-<pre><code class="language-bash">FLASK_ENV=development FLASK_APP=service.py flask run --port 5005
-</code></pre>
-<pre><code class="language-bash">FLASK_ENV=development FLASK_APP=app.py flask run --port 5002
-</code></pre>
-<p>Now you can navigate to <a href="127.0.0.1:5002">127.0.0.1:5002</a> and use your app. The main <code>app.py</code> calls <code>service.py</code> to do the predictions.</p>
-<p>At the top fo the Flask apps there are a few configuration variables. They are mostly about the paths to find the files we need and the name of the files (for example the weights of the best performing model). Modify those if you change the project structure.</p>
+<p><code>bash FLASK_ENV=development FLASK_APP=service.py flask run --port 5005</code></p>
+<p><code>bash FLASK_ENV=development FLASK_APP=app.py flask run --port 5002</code></p>
+<p>Now you can navigate to <a href="127.0.0.1:5002">127.0.0.1:5002</a> and use your app. The main <code>app.py</code> calls
+<code>service.py</code> to do the predictions.</p>
+<p>At the top fo the Flask apps there are a few configuration variables. They are mostly about the
+paths to find the files we need and the name of the files (for example the weights of the best
+performing model). Modify those if you change the project structure.</p>
                 
               
               

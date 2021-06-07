@@ -6,12 +6,15 @@ files and modify them accordingly.
 
 To run the apps use:
 
-```bash FLASK_ENV=development FLASK_APP=service.py flask run --port 5005 ```
+```bash
+FLASK_ENV=development FLASK_APP=service.py flask run --port 5005
+```
 
-```bash FLASK_ENV=development FLASK_APP=app.py flask run --port 5002 ```
+```bash
+FLASK_ENV=development FLASK_APP=app.py flask run --port 5002
+```
 
-Now you can navigate to [127.0.0.1:5002](127.0.0.1:5002) and use your app. The main `app.py` calls
-`service.py` to do the predictions.
+Now you can navigate to [127.0.0.1:5002](127.0.0.1:5002) and use your app. The main `app.py` calls `service.py` to do the predictions.
 
 At the top fo the Flask apps there are a few configuration variables. They are mostly about the
 paths to find the files we need and the name of the files (for example the weights of the best

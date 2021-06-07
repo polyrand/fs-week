@@ -9,32 +9,52 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## Basic commands
 
-* `mkdocs new [dir-name]` - Create a new project.  `mkdocs serve` - Start the live-reloading docs
-* server.  `mkdocs build` - Build the documentation site.  `mkdocs -h` - Print help message and
-* exit.
+- Create a new project.
+	* `mkdocs new [dir-name]`
+- Start the live-reloading docs site
+	* `mkdocs serve`
+- Build the documentation site.
+	* `mkdocs build`
+- Print help message exit.
+	* `mkdocs -h` 
 
 Now run:
 
-``` mkdocs new documentation_page cd documentation_page ```
+```bash
+mkdocs new documentation_page
+cd documentation_page
+```
 
 Edit the `mkdocs.yaml` file.
 
-```yaml theme: name: material language: en plugins:
-  - search
+```yaml
+theme:
+  name:
+    material
+  language:
+    en
+  plugins:
+    - search
 nav:
-  - Introduction: 'index.md' Examples: 'examples.md' Models: 'models.md'
+  - Introduction: 'index.md'
+  - Examples: 'examples.md'
+  - Models: 'models.md'
 ```
 
 Development:
 
-```bash mkdocs serve ```
+```bash
+mkdocs serve
+```
 
 Inside your `documentation_page/docs` folder, you can create an `examples.md` and `models.md` files
 and they will show up in your mkdocs site!
 
 Production:
 
-```bash mkdocs build ```
+```bash
+mkdocs build
+```
 
 That's it! This will generate a `site/` folder.
 
