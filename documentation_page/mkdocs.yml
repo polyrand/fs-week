@@ -1,6 +1,7 @@
 site_name: Full-Stack Machine Learning
 repo_url: https://github.com/polyrand/fs-week
 repo_name: polyrand/fs-week
+site_url: https://polyrand.github.io/fs-week
 
 theme:
    name: material
