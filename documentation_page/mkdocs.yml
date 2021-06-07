@@ -7,7 +7,7 @@ theme:
    name: material
    language: en
    palette:
-    primary: blue grey
+    primary: light blue
     accent: orange
 plugins:
   - search
