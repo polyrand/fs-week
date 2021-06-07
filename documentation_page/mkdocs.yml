@@ -8,6 +8,7 @@ theme:
    language: en
    palette:
     primary: blue grey
+    accent: orange
 plugins:
   - search
 nav:
