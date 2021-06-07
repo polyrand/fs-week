@@ -71,7 +71,7 @@ You can try doing everything inside `service.py` if that's easier at first. So b
 
 As always, having everything done is not the objective. The objective is that you understand how to design a solution to a problem and how to communicate and organize the "solution" (our project).
 
-If you have time you can work on the documentation and improve it. Explain to other people how to run your service.py and/or app.py.
+If you have time you can work on the documentation and improve it. Explain to other people how to run your `service.py` and/or `app.py`.
 
 **Video**
 
@@ -85,15 +85,16 @@ If you have time you can work on the documentation and improve it. Explain to ot
 * Add some more tests, even if they are simple ones
 
 Extra:
-* If you have problems with passlib. I will now create an alternative secure hashing function and update the file. It will take me 10 or 15 minutes.
+
+* If you have problems with `passlib`. There's also an alternative secure hashing function using `hashlib`, which comes fomr the Python standard library.
 
 Also, always take into account that hashing functions receive and return bytes, not strings. Passlib already handles that for you, but if you look at my implementation you'll see that I'm doing a few password.encode() to convert a string to bytes and hash(...).hex() to convert the hashed bytes to an hexadecimal string
 
-if you are already receiving bytes you don't need to encode it, but when you get the data from the flask request i'm pretty sure it's as a string, not bytes. ANyway, if you don't get the hashing working 100% don't worry, you can "create" your own hashing by just appending a random string to the end. As long as you make it work and write a couple of tests.
+If you are already receiving bytes you don't need to encode it, but when you get the data from the flask request i'm pretty sure it's as a string, not bytes. ANyway, if you don't get the hashing working 100% don't worry, you can "create" your own hashing by just appending a random string to the end. As long as you make it work and write a couple of tests.
 
 Something extra to try in the exercises:
 
-Creating a test for the ML model (taking the functions from service.py). For example, testing that the function returns one of the 2 classes. Or that if you have an image that it's been correctly predicted, write a test for it.
+* Creating a test for the ML model (taking the functions from service.py). For example, testing that the function returns one of the 2 classes. Or that if you have an image that it's been correctly predicted, write a test for it.
 
 ### Day 4
 
