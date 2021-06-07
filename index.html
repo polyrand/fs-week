@@ -9,6 +9,8 @@
       
       
       
+        <link rel="canonical" href="https://polyrand.github.io/fs-week/">
+      
       <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
     
@@ -52,7 +54,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="blue-grey" data-md-color-accent="orange">
   
     
     <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -537,7 +539,7 @@ why it's organized like that, how is the documentation written (using the <code>
 <li>After that's done, try to integrate this HTML form with <code>service.py</code>, now when you receive an image, instead of doing nothing with it, use the requests library to send it to the other service.</li>
 </ol>
 <p>As always, having everything done is not the objective. The objective is that you understand how to design a solution to a problem and how to communicate and organize the "solution" (our project).</p>
-<p>If you have time you can work on the documentation and improve it. Explain to other people how to run your service.py and/or app.py.</p>
+<p>If you have time you can work on the documentation and improve it. Explain to other people how to run your <code>service.py</code> and/or <code>app.py</code>.</p>
 <p><strong>Video</strong></p>
 <p><a href="https://www.youtube.com/watch?v=4ZiZCqC6rRQ">Logging inside a Flask app</a></p>
 <h3 id="day-3">Day 3</h3>
@@ -547,12 +549,16 @@ why it's organized like that, how is the documentation written (using the <code>
 <li>Finish writing the test in the <code>tests/test_app.py</code> file</li>
 <li>Add some more tests, even if they are simple ones</li>
 </ul>
-<p>Extra:
-* If you have problems with passlib. I will now create an alternative secure hashing function and update the file. It will take me 10 or 15 minutes.</p>
+<p>Extra:</p>
+<ul>
+<li>If you have problems with <code>passlib</code>. There's also an alternative secure hashing function using <code>hashlib</code>, which comes fomr the Python standard library.</li>
+</ul>
 <p>Also, always take into account that hashing functions receive and return bytes, not strings. Passlib already handles that for you, but if you look at my implementation you'll see that I'm doing a few password.encode() to convert a string to bytes and hash(...).hex() to convert the hashed bytes to an hexadecimal string</p>
-<p>if you are already receiving bytes you don't need to encode it, but when you get the data from the flask request i'm pretty sure it's as a string, not bytes. ANyway, if you don't get the hashing working 100% don't worry, you can "create" your own hashing by just appending a random string to the end. As long as you make it work and write a couple of tests.</p>
+<p>If you are already receiving bytes you don't need to encode it, but when you get the data from the flask request i'm pretty sure it's as a string, not bytes. ANyway, if you don't get the hashing working 100% don't worry, you can "create" your own hashing by just appending a random string to the end. As long as you make it work and write a couple of tests.</p>
 <p>Something extra to try in the exercises:</p>
-<p>Creating a test for the ML model (taking the functions from service.py). For example, testing that the function returns one of the 2 classes. Or that if you have an image that it's been correctly predicted, write a test for it.</p>
+<ul>
+<li>Creating a test for the ML model (taking the functions from service.py). For example, testing that the function returns one of the 2 classes. Or that if you have an image that it's been correctly predicted, write a test for it.</li>
+</ul>
 <h3 id="day-4">Day 4</h3>
 <p>Create a github workflow that does anything. It can be just a <code>print()</code> or running all the tests. You can do it in a new empty repository or in an old one.
 Some resources that may be helpful:</p>
