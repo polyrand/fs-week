@@ -397,45 +397,36 @@
                   <h1>Documentation</h1>
                 
                 <h2 id="mkdocs">MkDocs</h2>
-<p>The documentation of this project is built using mkdocs with the <a href="https://squidfunk.github.io/mkdocs-material/">mkdocs-material</a> theme.</p>
+<p>The documentation of this project is built using mkdocs with the
+<a href="https://squidfunk.github.io/mkdocs-material/">mkdocs-material</a> theme.</p>
 <p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<pre><code class="language-bash">pip install mkdocs mkdocs-material
-</code></pre>
+<p><code>bash pip install mkdocs mkdocs-material</code></p>
 <h2 id="basic-commands">Basic commands</h2>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li><code>mkdocs new [dir-name]</code> - Create a new project.  <code>mkdocs serve</code> - Start the live-reloading docs</li>
+<li>server.  <code>mkdocs build</code> - Build the documentation site.  <code>mkdocs -h</code> - Print help message and</li>
+<li>exit.</li>
 </ul>
 <p>Now run:</p>
-<pre><code>mkdocs new documentation_page
-cd documentation_page
-</code></pre>
+<p><code>mkdocs new documentation_page cd documentation_page</code></p>
 <p>Edit the <code>mkdocs.yaml</code> file.</p>
-<pre><code class="language-yaml">theme:
-   name: material
-   language: en
-plugins:
+<p><code>yaml theme: name: material language: en plugins:
   - search
 nav:
-  - Introduction: 'index.md'
-  - Examples: 'examples.md'
-  - Models: 'models.md'
-</code></pre>
+  - Introduction: 'index.md' Examples: 'examples.md' Models: 'models.md'</code></p>
 <p>Development:</p>
-<pre><code class="language-bash">mkdocs serve
-</code></pre>
+<p><code>bash mkdocs serve</code></p>
 <p>Inside your <code>documentation_page/docs</code> folder, you can create an <code>examples.md</code> and <code>models.md</code> files
 and they will show up in your mkdocs site!</p>
 <p>Production:</p>
-<pre><code class="language-bash">mkdocs build
-</code></pre>
+<p><code>bash mkdocs build</code></p>
 <p>That's it! This will generate a <code>site/</code> folder.</p>
 <h2 id="updating-the-documentation">Updating the documentation</h2>
 <p>Modify any of the markdown files and from the <code>documentation_page/</code> folder run:</p>
 <p><code>mkdocs gh-deploy</code></p>
-<p>This will automatically build the docs and push them to the <code>gh-pages</code> branch. <strong>Do not modify the files directly in the github branch</strong>. GitHub will detect the branch and build a static documentation site for the project.</p>
+<p>This will automatically build the docs and push them to the <code>gh-pages</code> branch. <strong>Do not modify the
+files directly in the github branch</strong>. GitHub will detect the branch and build a static
+documentation site for the project.</p>
 <p><strong>NOTE</strong></p>
 <p>Make sure to keep the <code>mkdocs.yaml</code> configuration file updated if you create new files.</p>
                 
